@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salta de Mates – Inicio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .place-card-img {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      border-radius: 14px 14px 0 0;
+      overflow: hidden;
+    }
+    .modal-img-box {
+      background-size: cover;
+      background-position: center;
+      min-height: 220px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO (Punto 1 del TP) -->
+  <header class="site-header">
+    <div>Salta de Mates</div>
+    <nav>
+      <a href="index.html">Lugares</a>
+      <a href="curso.html">Curso</a>
+      <a href="blog.html">Blog</a>
+      <a href="cv.html">CV</a>
+      <a href="faq.html">FAQ</a>
+      <a href="quienes-somos.html">Quiénes Somos</a>
+    </nav>
+  </header>
+
+  <!-- HERO (Imagen 2) -->
+  <section class="hero">
+    <p class="hero-eyebrow">Turismo en Salta</p>
+    <h1>Descubrí los mejores lugares<br>para compartir unos mates<br>en Salta</h1>
+    <p>Paisajes únicos, rincones tranquilos y experiencias inolvidables.</p>
+  </section>
+
+  <!-- GRID DE LUGARES (Imágenes 3-6) -->
+  <main class="container">
+
+    <h2 class="section-title">Lugares</h2>
+
+    <!-- Etiqueta P (Punto 5) -->
+    <p>
+      Explorá los mejores rincones de Salta para tomar unos mates con amigos o
+      en familia. Hacé clic en cualquier tarjeta para conocer su historia,
+      comentarios y ubicación.
+    </p>
+    <br>
+    <p>
+      Cada lugar fue seleccionado por su paisaje, tranquilidad y ambiente único.
+      ¡Encontrá tu próximo rincón favorito!
+    </p>
+
+    <!-- Datos útiles con PRE (Punto 5) -->
+    <pre class="codigo">
+Ciudad          : Salta Capital, Argentina
+Clima promedio  : 18 °C
+Mejor época     : Abril – Octubre
+    </pre>
+
+    <div class="places-grid">
+
+      <div class="place-card" onclick="abrirModal(1)">
+        <div class="place-card-img" style="background-image: url('img/guemes.jpg')"></div>
+        <div class="place-card-footer">Monumento Güemes <span>→</span></div>
+      </div>
+
+      <div class="place-card" onclick="abrirModal(2)">
+        <div class="place-card-img" style="background-image: url('img/portezuelo.jpg')"></div>
+        <div class="place-card-footer">Mirador del Portezuelo <span>→</span></div>
+      </div>
+
+      <div class="place-card" onclick="abrirModal(3)">
+        <div class="place-card-img" style="background-image: url('img/plaza9dejulio.jpg')"></div>
+        <div class="place-card-footer">Plaza 9 de Julio <span>→</span></div>
+      </div>
+
+      <div class="place-card" onclick="abrirModal(4)">
+        <div class="place-card-img" style="background-image: url('img/sanlorenzo.jpg')"></div>
+        <div class="place-card-footer">Quebrada de San Lorenzo <span>→</span></div>
+      </div>
+
+      <div class="place-card" onclick="abrirModal(5)">
+        <div class="place-card-img" style="background-image: url('img/cerro.jpg')"></div>
+        <div class="place-card-footer">Cerro San Bernardo <span>→</span></div>
+      </div>
+
+      <div class="place-card" onclick="abrirModal(6)">
+        <div class="place-card-img" style="background-image: url('img/legislatura.jpg')"></div>
+        <div class="place-card-footer">Plaza de la Legislatura <span>→</span></div>
+      </div>
+
+      <div class="place-card" onclick="abrirModal(7)">
+        <div class="place-card-img" style="background-image: url('img/plaza.jpg')"></div>
+        <div class="place-card-footer">Plaza España <span>→</span></div>
+      </div>
+
+      <div class="place-card" onclick="abrirModal(8)">
+        <div class="place-card-img" style="background-image: url('img/paludica.png')"></div>
+        <div class="place-card-footer">Plaza de la Paludica <span>→</span></div>
+      </div>
+
+      <div class="place-card" onclick="abrirModal(9)">
+        <div class="place-card-img" style="background-image: url('img/bicentenario.jpg')"></div>
+        <div class="place-card-footer">Parque Bicentenario <span>→</span></div>
+      </div>
+
+      <div class="place-card" onclick="abrirModal(10)">
+        <div class="place-card-img" style="background-image: url('img/parquesur.jpg')"></div>
+        <div class="place-card-footer">Parque Sur <span>→</span></div>
+      </div>
+
+    </div>
+
+    <!-- CONTACTO (Image 6) -->
+    <div class="contacto-box">
+      <h3>Contacto</h3>
+      <p>
+        Número de teléfono: (0387) 421-0000<br>
+        Email: hola@saltademates.com
+      </p>
+    </div>
+
+  </main>
+
+  <!-- PIE DE PÁGINA con HR (Punto 7) -->
+  <hr class="footer-line" />
+  <footer class="site-footer">
+    <p>© 2025 Salta de Mates · Enriquez Tiago · 4°3° TM CS</p>
+    <nav>
+      <a href="faq.html">Preguntas Frecuentes</a> |
+      <a href="quienes-somos.html">Quiénes Somos</a> |
+      <a href="blog.html">Blog</a>
+    </nav>
+  </footer>
+
+  <!-- MODAL (Imágenes 7-9): Historia / Comentarios / Ubicación -->
+  <div class="modal-overlay" id="modal" onclick="cerrarModalFuera(event)">
+    <div class="modal">
+      <div class="modal-topbar">
+        <h3 id="modal-titulo">Lugar</h3>
+        <button class="btn-cerrar" onclick="cerrarModal()">Cerrar</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-img" id="modal-img"></div>
+        <div class="modal-content">
+          <div class="modal-tabs">
+            <button class="tab-btn active" onclick="cambiarTab(this,'historia')">Historia</button>
+            <button class="tab-btn" onclick="cambiarTab(this,'comentarios')">Comentarios</button>
+            <button class="tab-btn" onclick="cambiarTab(this,'ubicacion')">Ubicación</button>
+          </div>
+          <div class="tab-panel active" id="tab-historia"><p id="txt-historia"></p></div>
+          <div class="tab-panel" id="tab-comentarios"><p id="txt-comentarios"></p></div>
+          <div class="tab-panel" id="tab-ubicacion">
+            <p id="txt-ubicacion"></p>
+            <a id="link-maps" href="#" target="_blank" style="display:inline-block;margin-top:10px;background:#2a9148;color:#fff;padding:7px 16px;border-radius:20px;text-decoration:none;font-size:.85rem;font-weight:600;">📍 Ver en Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const datos = [
+      {
+        nombre: "Monumento Güemes",
+        img: "img/guemes.jpg",
+        historia: "El Monumento al Gral. Martín Miguel de Güemes es uno de los símbolos más importantes de Salta. Inaugurado en 1931, rinde homenaje al héroe gaucho defensor de la patria. Rodeado de jardines, es un punto de encuentro ideal para tomar mates al atardecer.",
+        comentarios: "⭐⭐⭐⭐⭐ 'Un lugar emblemático, ideal para conocer la historia salteña.' — Martina R.\n\n⭐⭐⭐⭐ 'Muy bonito de noche con la iluminación.' — Lucas P.",
+        ubicacion: "Hacé clic en el botón para ver la ubicación exacta en Google Maps.",
+        maps: "https://www.google.com/maps/search/monumento+guemes+/@-24.7867766,-65.4027947,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D"
+      },
+      {
+        nombre: "Mirador del Portezuelo",
+        img: "img/portezuelo.jpg",
+        historia: "El Mirador del Portezuelo ofrece una de las vistas más espectaculares de la ciudad de Salta desde las alturas. Ideal para ir al atardecer y disfrutar de un mate con la ciudad a los pies.",
+        comentarios: "⭐⭐⭐⭐⭐ 'La mejor vista de Salta, imperdible.' — Diego F.\n\n⭐⭐⭐⭐⭐ 'Fui al atardecer y fue mágico.' — Valentina G.",
+        ubicacion: "Hacé clic en el botón para ver la ubicación exacta en Google Maps.",
+        maps: "https://www.google.com/maps/place/Salta-Mirador/@-24.798651,-65.390097,17z/data=!4m15!1m8!3m7!1s0x941bc382d28f34e5:0x2a6247859fd42f49!2sEl+Mirador,+A4400+Salta!3b1!8m2!3d-24.7953952!4d-65.3925615!16s%2Fg%2F11bx25h5mt!3m5!1s0x941bc3fc044b0475:0x1dd9f6276f0cf843!8m2!3d-24.798651!4d-65.390097!16s%2Fg%2F11stjv8kc_?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D"
+      },
+      {
+        nombre: "Plaza 9 de Julio",
+        img: "img/plaza9dejulio.jpg",
+        historia: "La Plaza 9 de Julio es el corazón de Salta. Fundada en 1582, está rodeada por la Catedral, el Cabildo y edificios coloniales. Es el lugar de encuentro por excelencia de los salteños.",
+        comentarios: "⭐⭐⭐⭐⭐ 'El alma de Salta. Siempre hay vida acá.' — Romina L.\n\n⭐⭐⭐⭐ 'Tomé mates sentado en los bancos, muy tranquilo.' — Alejandro V.",
+        ubicacion: "Hacé clic en el botón para ver la ubicación exacta en Google Maps.",
+        maps: "https://www.google.com/maps/place/Plaza+9+de+Julio/@-24.7892135,-65.4128588,17z/data=!3m1!4b1!4m6!3m5!1s0x941bc3bcaa4146a5:0x5858d5a81b90c139!8m2!3d-24.7892135!4d-65.4102839!16s%2Fg%2F1hhzgpwx9?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D"
+      },
+      {
+        nombre: "Quebrada de San Lorenzo",
+        img: "img/sanlorenzo.jpg",
+        historia: "La Quebrada de San Lorenzo es una reserva natural a pocos kilómetros de la ciudad. Sus senderos entre árboles y cascadas la convierten en el escape perfecto de la ciudad para los amantes de la naturaleza.",
+        comentarios: "⭐⭐⭐⭐⭐ 'Naturaleza pura, el silencio es increíble.' — Camila T.\n\n⭐⭐⭐⭐⭐ 'Ideal para hacer senderismo y tomar mates en el camino.' — Jorge A.",
+        ubicacion: "Hacé clic en el botón para ver la ubicación exacta en Google Maps.",
+        maps: "https://www.google.com/maps/place/Quebrada+de+San+Lorenzo/@-24.7226759,-65.5073255,17z/data=!3m1!4b1!4m6!3m5!1s0x941beaf40f353b95:0x325a328cb0242805!8m2!3d-24.7226759!4d-65.5047506!16s%2Fg%2F11dyjtf7y?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D"
+      },
+      {
+        nombre: "Cerro San Bernardo",
+        img: "img/cerro.jpg",
+        historia: "El Cerro San Bernardo domina el horizonte de Salta con sus 1.454 metros. Se puede subir en teleférico o por la escalinata de 1.070 escalones. Desde la cima se obtiene una vista panorámica 360° de la ciudad.",
+        comentarios: "⭐⭐⭐⭐⭐ 'La vista desde arriba es increíble, vale cada escalón.' — Florencia N.\n\n⭐⭐⭐⭐⭐ 'El teleférico es una experiencia única.' — Sebastián M.",
+        ubicacion: "Hacé clic en el botón para ver la ubicación exacta en Google Maps.",
+        maps: "https://www.google.com/maps/place/Cerro+San+Bernardo/@-24.7892723,-65.4059871,15z/data=!4m10!1m2!2m1!1scerro+san+bernardo!3m6!1s0x941bc384d559bf7b:0xe857a7af469ddba7!8m2!3d-24.7892723!4d-65.3925136!15sChJjZXJybyBzYW4gYmVybmFyZG9aFCISY2Vycm8gc2FuIGJlcm5hcmRvkgESdG91cmlzdF9hdHRyYWN0aW9u4AEA!16s%2Fg%2F11bxjvwp34?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D"
+      },
+      {
+        nombre: "Plaza de la Legislatura",
+        img: "img/legislatura.jpg",
+        historia: "La Plaza frente a la Legislatura de Salta es un espacio verde tranquilo en pleno centro. Rodeada de árboles centenarios y la Feria de Artesanos los fines de semana, es perfecta para descansar y tomar mates.",
+        comentarios: "⭐⭐⭐⭐ 'Muy tranquila, perfecta para leer y tomar mates.' — María G.\n\n⭐⭐⭐⭐ 'La feria de artesanos del fin de semana es un plus.' — Roberto L.",
+        ubicacion: "Hacé clic en el botón para ver la ubicación exacta en Google Maps.",
+        maps: "https://www.google.com/maps/place/Feria+de+artesanos+de+la+Plaza+de+la+Legislatura/@-24.783012,-65.4166082,17z/data=!3m1!4b1!4m6!3m5!1s0x941bc38f1a364b21:0xab82b4d00ace8995!8m2!3d-24.7830121!4d-65.4117373!16s%2Fg%2F11q9m3sx7q?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D"
+      },
+      {
+        nombre: "Plaza España",
+        img: "img/plaza.jpg",
+        historia: "La Plaza España es una de las plazas más pintorescas de Salta. Cuenta con una fuente central, bancos a la sombra y una hermosa arquitectura de influencia española. Ideal para tardes tranquilas.",
+        comentarios: "⭐⭐⭐⭐⭐ 'La fuente y los árboles la hacen muy especial.' — Claudia M.\n\n⭐⭐⭐⭐ 'Ambiente tranquilo y muy fotogénico.' — Gabriel S.",
+        ubicacion: "Hacé clic en el botón para ver la ubicación exacta en Google Maps.",
+        maps: "https://www.google.com/maps/place/Plaza+Espa%C3%B1a,+Salta/@-24.7790652,-65.4341038,17z/data=!3m1!4b1!4m6!3m5!1s0x941bc23453da79ff:0xff5cc56be25681e3!8m2!3d-24.7790652!4d-65.4315289!16s%2Fg%2F11c1nr76n4?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D"
+      },
+      {
+        nombre: "Plaza de la Paludica",
+        img: "img/paludica.png",
+        historia: "La Plaza de la Paludica es un rincón tranquilo y pintoresco de Salta, ideal para descansar y tomar unos mates rodeado de naturaleza y el encanto del barrio.",
+        comentarios: "⭐⭐⭐⭐⭐ 'Un lugar tranquilo y muy agradable, poco conocido.' — Paula B.\n\n⭐⭐⭐⭐ 'Perfecto para escaparse del centro.' — Tomás V.",
+        ubicacion: "Hacé clic en el botón para ver la ubicación exacta en Google Maps.",
+        maps: "https://www.google.com/maps/place/Paludica/@-24.7877388,-65.407873,17z/data=!3m1!4b1!4m6!3m5!1s0x941bc397df1431a3:0x54d52a22c3b24a88!8m2!3d-24.7877388!4d-65.4052981!16s%2Fg%2F11dzswylk4?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D"
+      },
+      {
+        nombre: "Parque Bicentenario",
+        img: "img/bicentenario.jpg",
+        historia: "El Parque Bicentenario fue inaugurado en 2010 para celebrar los 200 años de la Revolución de Mayo. Es uno de los parques más modernos de Salta, con lago artificial, anfiteatro y extensas áreas verdes.",
+        comentarios: "⭐⭐⭐⭐⭐ 'El lago artificial es hermoso, ideal para ir al atardecer.' — Silvia R.\n\n⭐⭐⭐⭐⭐ 'Muy bien mantenido, con mucha sombra.' — Alejandro V.",
+        ubicacion: "Hacé clic en el botón para ver la ubicación exacta en Google Maps.",
+        maps: "https://www.google.com/maps/search/Parque+Bicentenario/@-24.7322382,-65.4250266,16.5z?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D"
+      },
+      {
+        nombre: "Parque Sur",
+        img: "img/parquesur.jpg",
+        historia: "El Parque Sur es uno de los pulmones verdes de Salta. Con amplias zonas de césped, senderos arbolados y áreas de juego, es el lugar favorito de las familias salteñas para pasar el día al aire libre.",
+        comentarios: "⭐⭐⭐⭐⭐ 'Perfecto para ir con familia, muy limpio y tranquilo.' — Paula B.\n\n⭐⭐⭐⭐ 'Gran espacio verde cerca del centro.' — Tomás V.",
+        ubicacion: "Hacé clic en el botón para ver la ubicación exacta en Google Maps.",
+        maps: "https://www.google.com/maps/place/Parque+SUR/@-24.8482788,-65.4409653,17z/data=!3m1!4b1!4m6!3m5!1s0x941bc3ead4074bf1:0x734cbe9f86c8667d!8m2!3d-24.8482788!4d-65.4383904!16s%2Fg%2F11q_nz9_h6?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D"
+      }
+    ];
+
+    function abrirModal(n) {
+      const d = datos[n - 1];
+      document.getElementById('modal-titulo').textContent = d.nombre;
+      document.getElementById('modal-img').style.backgroundImage = `url('${d.img}')`;
+      document.getElementById('modal-img').style.backgroundSize = 'cover';
+      document.getElementById('modal-img').style.backgroundPosition = 'center';
+      document.getElementById('txt-historia').textContent = d.historia;
+      document.getElementById('txt-comentarios').textContent = d.comentarios;
+      document.getElementById('txt-ubicacion').textContent = d.ubicacion;
+      document.getElementById('link-maps').href = d.maps;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn')[0].classList.add('active');
+      document.getElementById('tab-historia').classList.add('active');
+      document.getElementById('modal').classList.add('open');
+    }
+
+    function cerrarModal() {
+      document.getElementById('modal').classList.remove('open');
+    }
+
+    function cerrarModalFuera(e) {
+      if (e.target.id === 'modal') cerrarModal();
+    }
+
+    function cambiarTab(btn, id) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + id).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
