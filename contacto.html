@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto – Salta de Mates</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .form-hero {
+      background: linear-gradient(135deg, #1e7a3e, #2e9e52);
+      color: #fff;
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .form-hero h1 { font-size: 1.9rem; font-weight: 800; margin-bottom: 8px; }
+    .form-hero p  { opacity: .88; font-size: .95rem; }
+
+    .form-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 36px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.10);
+      max-width: 680px;
+      margin: 36px auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: .9rem;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="number"],
+    .form-group input[type="date"],
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 16px;
+      border: 1.5px solid #ddd;
+      border-radius: 10px;
+      font-size: .92rem;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      outline: none;
+      transition: border-color .2s;
+      box-sizing: border-box;
+      color: #1a1a2e;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #2e9e52;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .radio-group, .check-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .radio-group label, .check-group label {
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .radio-group input, .check-group input {
+      accent-color: #2e9e52;
+      width: 16px;
+      height: 16px;
+    }
+
+    .hint {
+      font-size: .78rem;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn-enviar {
+      background: #2a9148;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 32px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+      flex: 1;
+    }
+    .btn-enviar:hover { background: #1e7a3e; }
+
+    .btn-limpiar {
+      background: #fff;
+      color: #2a9148;
+      border: 2px solid #2a9148;
+      border-radius: 10px;
+      padding: 12px 32px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .btn-limpiar:hover { background: #edf7f0; }
+
+    .success-msg {
+      display: none;
+      background: #edf7f0;
+      border: 2px solid #2e9e52;
+      border-radius: 10px;
+      padding: 16px 20px;
+      text-align: center;
+      color: #1e7a3e;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+
+    .form-section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1e7a3e;
+      border-bottom: 2px solid #a8f0c0;
+      padding-bottom: 6px;
+      margin: 28px 0 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div>Salta de Mates</div>
+    <nav>
+      <a href="index.html">Lugares</a>
+      <a href="curso.html">Curso</a>
+      <a href="blog.html">Blog</a>
+      <a href="cv.html">CV</a>
+      <a href="faq.html">FAQ</a>
+      <a href="quienes-somos.html">Quiénes Somos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <div class="form-hero">
+    <h1>📬 Contacto</h1>
+    <p>¿Tenés alguna consulta, sugerencia o querés recomendar un lugar? ¡Escribinos!</p>
+  </div>
+
+  <div class="container">
+    <div class="form-card">
+
+      <form action="#" method="post" id="form-contacto">
+
+        <!-- DATOS PERSONALES -->
+        <div class="form-section-title">👤 Datos personales</div>
+
+        <!-- Nombre -->
+        <div class="form-group">
+          <label for="nombre">Nombre completo *</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Ej: Juan Pérez"
+            required
+            minlength="3"
+            maxlength="60"
+          />
+          <p class="hint">Mínimo 3 caracteres, máximo 60.</p>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Correo electrónico *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Ej: juan@email.com"
+            required
+          />
+        </div>
+
+        <!-- Teléfono -->
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input
+            type="number"
+            id="telefono"
+            name="telefono"
+            placeholder="Ej: 3875000000"
+            min="1000000"
+            max="9999999999"
+          />
+          <p class="hint">Solo números, sin espacios ni guiones.</p>
+        </div>
+
+        <!-- Fecha de nacimiento -->
+        <div class="form-group">
+          <label for="fecha">Fecha de nacimiento</label>
+          <input
+            type="date"
+            id="fecha"
+            name="fecha"
+            min="1900-01-01"
+            max="2015-12-31"
+          />
+        </div>
+
+        <!-- País -->
+        <div class="form-group">
+          <label for="pais">País *</label>
+          <select id="pais" name="pais" required>
+            <option value="">-- Seleccioná tu país --</option>
+            <option value="ar">Argentina</option>
+            <option value="bo">Bolivia</option>
+            <option value="cl">Chile</option>
+            <option value="py">Paraguay</option>
+            <option value="uy">Uruguay</option>
+            <option value="br">Brasil</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <!-- CONSULTA -->
+        <div class="form-section-title">💬 Tu consulta</div>
+
+        <!-- ¿Cómo nos conociste? -->
+        <div class="form-group">
+          <label>¿Cómo nos conociste? *</label>
+          <div class="radio-group">
+            <label><input type="radio" name="origen" value="redes" required /> Redes sociales</label>
+            <label><input type="radio" name="origen" value="amigo" /> Un amigo</label>
+            <label><input type="radio" name="origen" value="google" /> Google</label>
+            <label><input type="radio" name="origen" value="escuela" /> La escuela</label>
+            <label><input type="radio" name="origen" value="otro" /> Otro</label>
+          </div>
+        </div>
+
+        <!-- Asunto -->
+        <div class="form-group">
+          <label for="asunto">Asunto *</label>
+          <input
+            type="text"
+            id="asunto"
+            name="asunto"
+            placeholder="Ej: Consulta sobre un lugar"
+            required
+            minlength="5"
+            maxlength="100"
+          />
+        </div>
+
+        <!-- Mensaje -->
+        <div class="form-group">
+          <label for="mensaje">Mensaje *</label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            placeholder="Escribí tu mensaje acá..."
+            required
+            minlength="10"
+            maxlength="500"
+          ></textarea>
+          <p class="hint">Mínimo 10 caracteres, máximo 500.</p>
+        </div>
+
+        <!-- Subir imagen -->
+        <div class="form-group">
+          <label for="foto">Adjuntar foto del lugar (opcional)</label>
+          <input type="file" id="foto" name="foto" accept="image/*" />
+          <p class="hint">Solo imágenes: JPG, PNG, WEBP.</p>
+        </div>
+
+        <!-- Campo oculto -->
+        <input type="hidden" name="sitio" value="salta-de-mates" />
+
+        <!-- Términos -->
+        <div class="form-group">
+          <div class="check-group">
+            <label>
+              <input type="checkbox" name="terminos" required />
+              Acepto los términos y condiciones del sitio *
+            </label>
+          </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="btn-group">
+          <button type="submit" class="btn-enviar">📤 Enviar mensaje</button>
+          <button type="reset" class="btn-limpiar">🗑️ Limpiar</button>
+        </div>
+
+        <!-- Mensaje de éxito -->
+        <div class="success-msg" id="success-msg">
+          ✅ ¡Mensaje enviado con éxito! Te respondemos a la brevedad.
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <hr class="footer-line" />
+  <footer class="site-footer">
+    <p>© 2025 Salta de Mates · Enriquez Tiago · 4°3° TM CS</p>
+    <nav>
+      <a href="faq.html">Preguntas Frecuentes</a> |
+      <a href="quienes-somos.html">Quiénes Somos</a> |
+      <a href="index.html">Inicio</a>
+    </nav>
+  </footer>
+
+  <script>
+    document.getElementById('form-contacto').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('success-msg').style.display = 'block';
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
