@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto – Salta de Mates</title>
-  <link rel="stylesheet" href="style.css" />
+
+<?php
+$titulo_pagina = "Contacto – Salta de Mates";
+
+$extra_styles = '
   <style>
     .form-hero { background: linear-gradient(135deg, #1e7a3e, #2e9e52); color: #fff; padding: 40px 24px; text-align: center; }
     .form-hero h1 { font-size: 1.9rem; font-weight: 800; margin-bottom: 8px; }
@@ -16,7 +14,7 @@
     .form-group input[type="number"],
     .form-group input[type="date"],
     .form-group select,
-    .form-group textarea { width: 100%; padding: 11px 16px; border: 1.5px solid #ddd; border-radius: 10px; font-size: .92rem; font-family: 'Segoe UI', Arial, sans-serif; outline: none; transition: border-color .2s; box-sizing: border-box; color: #1a1a2e; }
+    .form-group textarea { width: 100%; padding: 11px 16px; border: 1.5px solid #ddd; border-radius: 10px; font-size: .92rem; font-family: "Segoe UI", Arial, sans-serif; outline: none; transition: border-color .2s; box-sizing: border-box; color: #1a1a2e; }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #2e9e52; }
     .form-group textarea { resize: vertical; min-height: 110px; }
     .radio-group, .check-group { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 6px; }
@@ -37,29 +35,15 @@
     .btn-editar { background: #fff; color: #1e7a3e; border: 2px solid #1e7a3e; border-radius: 10px; padding: 10px 24px; font-size: .95rem; font-weight: 700; cursor: pointer; margin-top: 16px; }
     .success-msg { display: none; background: #1e7a3e; color: #fff; border-radius: 10px; padding: 16px 20px; text-align: center; font-weight: 600; margin-top: 20px; font-size: 1rem; }
     .form-section-title { font-size: 1rem; font-weight: 700; color: #1e7a3e; border-bottom: 2px solid #a8f0c0; padding-bottom: 6px; margin: 28px 0 16px; }
-    .reloj-bar { background: #1e7a3e; color: #fff; text-align: center; padding: 8px; font-size: .88rem; font-weight: 600; }
   </style>
-</head>
-<body>
+';
 
-  <div class="reloj-bar" id="reloj-bar"></div>
-
-  <header class="site-header">
-    <div>Salta de Mates</div>
-    <nav aria-label="Navegación principal">
-      <a href="index.html">Lugares</a>
-      <a href="curso.html">Curso</a>
-      <a href="blog.html">Blog</a>
-      <a href="cv.html">CV</a>
-      <a href="faq.html">FAQ</a>
-      <a href="quienes-somos.html">Quiénes Somos</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
+require_once 'includes/header.php';
+?>
 
   <div class="form-hero">
     <h1>Contacto</h1>
-    <p>Tenes alguna consulta, sugerencia o queres recomendar un lugar? Escribinos!</p>
+    <p>¿Tenés alguna consulta, sugerencia o querés recomendar un lugar? ¡Escribinos!</p>
   </div>
 
   <div class="container">
@@ -178,28 +162,8 @@
     </div>
   </div>
 
-  <hr class="footer-line" />
-  <footer class="site-footer">
-    <p>2025 Salta de Mates - Enriquez Tiago - 4 3 TM CS</p>
-    <nav>
-      <a href="faq.html">Preguntas Frecuentes</a> |
-      <a href="quienes-somos.html">Quienes Somos</a> |
-      <a href="index.html">Inicio</a>
-    </nav>
-  </footer>
-
   <script>
-    // PUNTO 3 - Reloj en tiempo real
-    function actualizarReloj() {
-      var ahora = new Date();
-      var fecha = ahora.toLocaleDateString('es-AR', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
-      var hora = ahora.toLocaleTimeString('es-AR');
-      document.getElementById('reloj-bar').textContent = 'Fecha: ' + fecha + '  |  Hora: ' + hora;
-    }
-    actualizarReloj();
-    setInterval(actualizarReloj, 1000);
-
-    // PUNTO 2 - Validacion de formulario
+    // Validación de formulario
     function validarEmail(email) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
@@ -248,7 +212,7 @@
       return valido;
     }
 
-    // PUNTO 7 - Resumen antes de enviar
+    // Resumen antes de enviar
     document.getElementById('form-contacto').addEventListener('submit', function(e) {
       e.preventDefault();
       if (!validarForm()) return;
@@ -282,5 +246,4 @@
     }
   </script>
 
-</body>
-</html>
+<?php require_once 'includes/footer.php'; ?>
