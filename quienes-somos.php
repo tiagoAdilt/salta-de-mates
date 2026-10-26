@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiénes Somos – Salta de Mates</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <header class="site-header">
-    <div>Salta de Mates</div>
-    <nav>
-      <a href="index.html">Lugares</a>
-      <a href="curso.html">Curso</a>
-      <a href="blog.html">Blog</a>
-      <a href="cv.html">CV</a>
-      <a href="faq.html">FAQ</a>
-      <a href="quienes-somos.html">Quiénes Somos</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
+<?php
+$titulo_pagina = "Quiénes Somos – Salta de Mates";
+require_once 'includes/header.php';
+?>
 
   <div class="page-hero">
     <h1>🧉 Quiénes Somos</h1>
@@ -80,8 +62,8 @@
         </div>
         <div class="team-card">
           <div class="av">📚</div>
-          <h3>TP3 — Adaptación al Ambiente</h3>
-          <p>Desarrollo web con HTML5 y CSS3.</p>
+          <h3>TP4 — Adaptación al Ambiente</h3>
+          <p>Desarrollo web dinámico con PHP y Apache.</p>
         </div>
       </div>
     </div>
@@ -94,6 +76,8 @@
       <p>Diseño de alta fidelidad con la paleta verde, tipografía y componentes interactivos. Se definieron las 10 tarjetas de lugares con sus tabs de Historia, Comentarios y Ubicación.</p>
       <h3>TP3 — Desarrollo en HTML y CSS</h3>
       <p>Implementación del sitio completo respetando el diseño de Figma, con las secciones del trabajo práctico: encabezados, curso en línea, blog, CV, FAQ y Quiénes Somos.</p>
+      <h3>TP4 — Migración a PHP y SSI</h3>
+      <p>Modularización con Server-Side Includes en Apache/XAMPP, configuración de entorno `.env` y control de versiones con Git.</p>
 
       <h3>Contacto</h3>
       <p>
@@ -105,15 +89,4 @@
 
   </main>
 
-  <hr class="footer-line" />
-  <footer class="site-footer">
-    <p>© 2025 Salta de Mates · Enriquez Tiago · 4°3° TM CS</p>
-    <nav>
-      <a href="index.html">Inicio</a> |
-      <a href="faq.html">Preguntas Frecuentes</a> |
-      <a href="blog.html">Blog</a>
-    </nav>
-  </footer>
-
-</body>
-</html>
+<?php require_once 'includes/footer.php'; ?>

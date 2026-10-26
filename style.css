@@ -438,3 +438,79 @@ pre.codigo {
 .team-card .av { font-size: 2.8rem; margin-bottom: 8px; }
 .team-card h3  { font-size: .95rem; color: var(--verde-oscuro); }
 .team-card p   { font-size: .82rem; color: var(--texto-gris); margin-top: 4px; }
+
+.dark-mode { background: #1a1a2e !important; color: #e0e0e0 !important; }
+.dark-mode .site-header { background: #16213e !important; color: #e0e0e0 !important; }
+.dark-mode .place-card, .dark-mode .card-blanco { background: #16213e !important; color: #e0e0e0 !important; }
+.dark-mode .place-card-footer { color: #e0e0e0 !important; }
+.dark-mode .contacto-box { background: #16213e !important; }
+.dark-mode .site-footer { background: #16213e !important; }
+.dark-mode pre.codigo { background: #0f3460 !important; }
+.dark-mode h2, .dark-mode h1.section-title { color: #a8f0c0 !important; }
+.dark-mode p { color: #ccc !important; }
+
+/* Estilo unificado para el botón de modo oscuro */
+.dark-mode-btn {
+    background-color: #2e9e52;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.3s;
+}
+.dark-mode-btn:hover {
+    background-color: #1e7a3e;
+}
+/* ==========================================
+   ESTILOS PARA EL MODO OSCURO (DARK MODE)
+   ================================---------- */
+
+/* Cuando el body tenga la clase dark-mode, cambian los colores generales */
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+/* Fondo oscuro para el header y la barra de navegación */
+body.dark-mode .site-header,
+body.dark-mode header {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+/* Enlaces del menú en modo oscuro */
+body.dark-mode .site-header nav a,
+body.dark-mode header nav a {
+    color: #4db6ac !important;
+}
+
+/* Tarjetas, contenedores o secciones blancas pasan a fondo oscuro */
+body.dark-mode .container,
+body.dark-mode .form-card,
+body.dark-mode .cv-top,
+body.dark-mode section {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-color: #333333 !important;
+}
+
+/* Ajuste de textos principales en modo oscuro */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode p {
+    color: #e0e0e0 !important;
+}
+
+/* Estilo específico para el botón de modo oscuro al activarlo */
+body.dark-mode .dark-mode-btn {
+    background-color: #333333 !important;
+    color: #ffeb3b !important;
+    border: 1px solid #555 !important;
+}

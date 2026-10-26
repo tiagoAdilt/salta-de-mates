@@ -1,0 +1,5 @@
+# Excluir archivos del sistema y de editores
+.DS_Store
+Thumbs.db
+.vscode/
+.env

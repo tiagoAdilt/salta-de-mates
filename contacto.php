@@ -1,44 +1,9 @@
 
 <?php
 $titulo_pagina = "Contacto – Salta de Mates";
+
 require_once 'includes/header.php';
 ?>
-$extra_styles = '
-  <style>
-    .form-hero { background: linear-gradient(135deg, #1e7a3e, #2e9e52); color: #fff; padding: 40px 24px; text-align: center; }
-    .form-hero h1 { font-size: 1.9rem; font-weight: 800; margin-bottom: 8px; }
-    .form-card { background: #fff; border-radius: 16px; padding: 32px 36px; box-shadow: 0 4px 18px rgba(0,0,0,.10); max-width: 680px; margin: 36px auto; }
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; font-weight: 600; font-size: .9rem; color: #1a1a2e; margin-bottom: 6px; }
-    .form-group input[type="text"],
-    .form-group input[type="email"],
-    .form-group input[type="number"],
-    .form-group input[type="date"],
-    .form-group select,
-    .form-group textarea { width: 100%; padding: 11px 16px; border: 1.5px solid #ddd; border-radius: 10px; font-size: .92rem; font-family: "Segoe UI", Arial, sans-serif; outline: none; transition: border-color .2s; box-sizing: border-box; color: #1a1a2e; }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #2e9e52; }
-    .form-group textarea { resize: vertical; min-height: 110px; }
-    .radio-group, .check-group { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 6px; }
-    .radio-group label, .check-group label { font-weight: 400; display: flex; align-items: center; gap: 6px; cursor: pointer; }
-    .radio-group input, .check-group input { accent-color: #2e9e52; width: 16px; height: 16px; }
-    .hint { font-size: .78rem; color: #888; margin-top: 4px; }
-    .error-msg { color: #c0392b; font-size: .82rem; margin-top: 4px; display: none; font-weight: 600; }
-    .input-error { border-color: #c0392b !important; }
-    .btn-group { display: flex; gap: 12px; margin-top: 28px; }
-    .btn-enviar { background: #2a9148; color: #fff; border: none; border-radius: 10px; padding: 12px 32px; font-size: 1rem; font-weight: 700; cursor: pointer; flex: 1; }
-    .btn-enviar:hover { background: #1e7a3e; }
-    .btn-limpiar { background: #fff; color: #2a9148; border: 2px solid #2a9148; border-radius: 10px; padding: 12px 32px; font-size: 1rem; font-weight: 700; cursor: pointer; }
-    .resumen-box { display: none; background: #edf7f0; border: 2px solid #2e9e52; border-radius: 12px; padding: 24px; margin-top: 24px; }
-    .resumen-box h3 { color: #1e7a3e; font-size: 1.1rem; margin-bottom: 14px; }
-    .resumen-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: .9rem; }
-    .resumen-item strong { color: #1e7a3e; min-width: 100px; }
-    .btn-confirmar { background: #1e7a3e; color: #fff; border: none; border-radius: 10px; padding: 10px 24px; font-size: .95rem; font-weight: 700; cursor: pointer; margin-top: 16px; margin-right: 10px; }
-    .btn-editar { background: #fff; color: #1e7a3e; border: 2px solid #1e7a3e; border-radius: 10px; padding: 10px 24px; font-size: .95rem; font-weight: 700; cursor: pointer; margin-top: 16px; }
-    .success-msg { display: none; background: #1e7a3e; color: #fff; border-radius: 10px; padding: 16px 20px; text-align: center; font-weight: 600; margin-top: 20px; font-size: 1rem; }
-    .form-section-title { font-size: 1rem; font-weight: 700; color: #1e7a3e; border-bottom: 2px solid #a8f0c0; padding-bottom: 6px; margin: 28px 0 16px; }
-  </style>
-';
-
 
   <div class="form-hero">
     <h1>Contacto</h1>

@@ -1,8 +1,7 @@
 
 <?php
 $titulo_pagina = "CV – Tiago Rafael Enriquez Adil";
-require_once 'includes/header.php';
-?>
+
 $extra_styles = '
   <style>
     .cv-top {
@@ -18,7 +17,8 @@ $extra_styles = '
     .cv-top p  { color: rgba(255,255,255,.85); font-size: .9rem; margin: 2px 0; }
   </style>
 ';
-
+require_once 'includes/header.php';
+?>
 
 
   <!-- ENCABEZADO PERSONAL -->
