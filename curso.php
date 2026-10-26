@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Curso – Salta de Mates</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <header class="site-header">
-    <div>Salta de Mates</div>
-    <nav>
-      <a href="index.html">Lugares</a>
-      <a href="curso.html">Curso</a>
-      <a href="blog.html">Blog</a>
-      <a href="cv.html">CV</a>
-      <a href="faq.html">FAQ</a>
-      <a href="quienes-somos.html">Quiénes Somos</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
+<?php
+ $titulo_pagina = "Curso – Salta de Mates";
+ require_once 'includes/header.php';
+?>
 
   <div class="page-hero">
     <h1>🧉 Curso: El Arte del Mate en Salta</h1>
@@ -54,7 +36,7 @@
       </div>
 
       <h3>1.2 El mate en Salta</h3>
-      <p>La tradición salteña incorpora el mate en la vida cotidiana, en reuniones familiares, mercados y plazas. Su preparación varía según el municipio.</p>
+      <p>La tradición salteña incorpora el mate en la vida cotidiana, en reuniones familiares, plazas y mercados. Su preparación varía según el municipio.</p>
 
       <div>
         <h4>Variantes locales</h4>
@@ -133,15 +115,4 @@ Verano (Dic-Feb) : Preferable lugares con sombra y agua
 
   </main>
 
-  <hr class="footer-line" />
-  <footer class="site-footer">
-    <p>© 2025 Salta de Mates · Enriquez Tiago · 4°3° TM CS</p>
-    <nav>
-      <a href="faq.html">Preguntas Frecuentes</a> |
-      <a href="quienes-somos.html">Quiénes Somos</a> |
-      <a href="index.html">Inicio</a>
-    </nav>
-  </footer>
-
-</body>
-</html>
+<?php require_once 'includes/footer.php'; ?>

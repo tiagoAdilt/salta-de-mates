@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV – Tiago Rafael Enriquez Adil</title>
-  <link rel="stylesheet" href="style.css" />
+
+<?php
+$titulo_pagina = "CV – Tiago Rafael Enriquez Adil";
+require_once 'includes/header.php';
+?>
+$extra_styles = '
   <style>
     .cv-top {
       background: linear-gradient(135deg, #1e7a3e, #2e9e52);
@@ -18,21 +17,9 @@
     .cv-top h1 { font-size: 1.8rem; color: #fff; margin-bottom: 4px; }
     .cv-top p  { color: rgba(255,255,255,.85); font-size: .9rem; margin: 2px 0; }
   </style>
-</head>
-<body>
+';
 
-  <header class="site-header">
-    <div>Salta de Mates</div>
-    <nav>
-      <a href="index.html">Lugares</a>
-      <a href="curso.html">Curso</a>
-      <a href="blog.html">Blog</a>
-      <a href="cv.html">CV</a>
-      <a href="faq.html">FAQ</a>
-      <a href="quienes-somos.html">Quiénes Somos</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
+
 
   <!-- ENCABEZADO PERSONAL -->
   <div class="cv-top">
@@ -138,14 +125,4 @@
 
   </main>
 
-  <hr class="footer-line" />
-  <footer class="site-footer">
-    <p>© 2025 Tiago Rafael Enriquez Adil · Currículum Vitae</p>
-    <nav>
-      <a href="index.html">Volver al sitio</a> |
-      <a href="quienes-somos.html">Quiénes Somos</a>
-    </nav>
-  </footer>
-
-</body>
-</html>
+<?php require_once 'includes/footer.php'; ?>

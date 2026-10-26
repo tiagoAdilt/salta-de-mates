@@ -1,6 +1,7 @@
 <?php
 $titulo_pagina = "Salta de Mates – Lugares";
-
+require_once 'includes/header.php';
+?>
 $extra_styles = '
   <style>
     /* MODO OSCURO */
@@ -16,8 +17,7 @@ $extra_styles = '
   </style>
 ';
 
-require_once 'includes/header.php';
-?>
+
 
   <div class="page-hero">
     <h1>🧉 Salta de Mates</h1>

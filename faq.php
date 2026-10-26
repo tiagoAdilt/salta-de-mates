@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Preguntas Frecuentes – Salta de Mates</title>
-  <link rel="stylesheet" href="style.css" />
+<?php
+$titulo_pagina = "Preguntas Frecuentes – Salta de Mates";
+require_once 'includes/header.php';
+?>
+$extra_styles = '
   <style>
     .acordeon-item {
       background: #fff;
@@ -39,32 +37,9 @@
       line-height: 1.7;
     }
     .acordeon-contenido.abierto { display: block; }
-    .reloj-bar {
-      background: #1e7a3e;
-      color: #fff;
-      text-align: center;
-      padding: 8px;
-      font-size: .88rem;
-      font-weight: 600;
-    }
   </style>
-</head>
-<body>
+';
 
-  <div class="reloj-bar" id="reloj-bar"></div>
-
-  <header class="site-header">
-    <div>Salta de Mates</div>
-    <nav aria-label="Navegación principal">
-      <a href="index.html">Lugares</a>
-      <a href="curso.html">Curso</a>
-      <a href="blog.html">Blog</a>
-      <a href="cv.html">CV</a>
-      <a href="faq.html">FAQ</a>
-      <a href="quienes-somos.html">Quiénes Somos</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
 
   <div class="page-hero">
     <h1>❓ Preguntas Frecuentes</h1>
@@ -154,18 +129,8 @@
 
   </main>
 
-  <hr class="footer-line" />
-  <footer class="site-footer">
-    <p>© 2025 Salta de Mates · Enriquez Tiago · 4°3° TM CS</p>
-    <nav aria-label="Navegación del pie de página">
-      <a href="index.html">Inicio</a> |
-      <a href="quienes-somos.html">Quiénes Somos</a> |
-      <a href="blog.html">Blog</a>
-    </nav>
-  </footer>
-
   <script>
-    // PUNTO 4 — Acordeón
+    // Acordeón
     function toggleAcordeon(btn) {
       const contenido = btn.nextElementSibling;
       const estaAbierto = contenido.classList.contains('abierto');
@@ -176,17 +141,6 @@
         btn.classList.add('abierto');
       }
     }
-
-    // PUNTO 3 — Reloj
-    function actualizarReloj() {
-      const ahora = new Date();
-      const fecha = ahora.toLocaleDateString('es-AR', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
-      const hora = ahora.toLocaleTimeString('es-AR');
-      document.getElementById('reloj-bar').textContent = '📅 ' + fecha + '  |  🕐 ' + hora;
-    }
-    actualizarReloj();
-    setInterval(actualizarReloj, 1000);
   </script>
 
-</body>
-</html>
+<?php require_once 'includes/footer.php'; ?>

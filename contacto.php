@@ -1,7 +1,8 @@
 
 <?php
 $titulo_pagina = "Contacto – Salta de Mates";
-
+require_once 'includes/header.php';
+?>
 $extra_styles = '
   <style>
     .form-hero { background: linear-gradient(135deg, #1e7a3e, #2e9e52); color: #fff; padding: 40px 24px; text-align: center; }
@@ -38,8 +39,6 @@ $extra_styles = '
   </style>
 ';
 
-require_once 'includes/header.php';
-?>
 
   <div class="form-hero">
     <h1>Contacto</h1>
