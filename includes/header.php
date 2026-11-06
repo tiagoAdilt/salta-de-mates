@@ -31,5 +31,6 @@ if (!isset($titulo_pagina)) {
       <a href="faq.php">FAQ</a>
       <a href="quienes-somos.php">Quienes Somos</a>
       <a href="contacto.php">Contacto</a>
+      <a href="admin/index.php" style="background: #1e7a3e; color: #fff; font-weight: 600; border-color: #1e7a3e;">⚙️ Admin CRUD</a>
     </nav>
   </header>
