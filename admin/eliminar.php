@@ -5,6 +5,12 @@
  * Autor: Enriquez Tiago
  */
 
+session_start();
+if (!isset($_SESSION['usuario_id']) || ($_SESSION['usuario_rol'] ?? '') !== 'admin') {
+    header('Location: ../login.php?error=acceso_denegado');
+    exit;
+}
+
 require_once '../config/conexion.php';
 
 // Captura segura del identificador por GET o POST

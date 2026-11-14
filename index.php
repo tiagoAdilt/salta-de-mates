@@ -52,9 +52,11 @@ require_once 'includes/header.php';
         <?php endif; ?>
       </div>
       <div style="display: flex; gap: 10px;">
-        <a href="admin/index.php" style="background: #1e7a3e; color: #fff; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
-          ⚙️ Administrar Lugares (CRUD)
-        </a>
+        <?php if (isset($_SESSION['usuario_rol']) && $_SESSION['usuario_rol'] === 'admin'): ?>
+          <a href="admin/index.php" style="background: #1e7a3e; color: #fff; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+            ⚙️ Administrar Lugares (CRUD)
+          </a>
+        <?php endif; ?>
         <button id="dark-toggle" onclick="toggleDarkMode()" style="background:#333; color:#fff; border:none; padding:8px 16px; border-radius:20px; cursor:pointer; font-weight:600;">
           🌙 Modo Oscuro
         </button>

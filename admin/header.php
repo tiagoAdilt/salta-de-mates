@@ -7,6 +7,12 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Control estricto de acceso: Solo Administradores
+if (!isset($_SESSION['usuario_id']) || ($_SESSION['usuario_rol'] ?? '') !== 'admin') {
+    header('Location: ../login.php?error=acceso_denegado');
+    exit;
+}
+
 if (!isset($titulo_admin)) {
     $titulo_admin = "Panel de Administración - Salta de Mates";
 }

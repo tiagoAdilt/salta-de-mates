@@ -34,12 +34,14 @@ if (!isset($titulo_pagina)) {
       <a href="faq.php">FAQ</a>
       <a href="quienes-somos.php">Quienes Somos</a>
       <a href="contacto.php">Contacto</a>
-      <a href="admin/index.php" style="background: #1e7a3e; color: #fff; font-weight: 600; border-color: #1e7a3e;">⚙️ Admin CRUD</a>
+      
       <?php if (isset($_SESSION['usuario_nombre'])): ?>
-        <a href="logout.php" style="background: #e65100; color: #fff; border-color: #e65100;" title="Cerrar sesión">🚪 Salir (<?php echo htmlspecialchars(explode(' ', $_SESSION['usuario_nombre'])[0], ENT_QUOTES, 'UTF-8'); ?>)</a>
+        <?php if (($_SESSION['usuario_rol'] ?? '') === 'admin'): ?>
+          <a href="admin/index.php" style="background: #1e7a3e; color: #fff; font-weight: 600; border-color: #1e7a3e;">⚙️ Panel Admin</a>
+        <?php endif; ?>
+        <a href="logout.php" style="background: #c62828; color: #fff; border-color: #c62828;" title="Cerrar sesión">🚪 Salir (<?php echo htmlspecialchars(explode(' ', $_SESSION['usuario_nombre'])[0], ENT_QUOTES, 'UTF-8'); ?>)</a>
       <?php else: ?>
-        <a href="login.php" style="border-color: #1e7a3e; font-weight: 600;">🔐 Ingresar</a>
-        <a href="registro.php" style="background: #2e9e52; color: #fff; border-color: #2e9e52;">📝 Registro</a>
+        <a href="login.php" style="background: #1e7a3e; color: #fff; font-weight: 600; border-color: #1e7a3e;">🔐 Ingresar</a>
       <?php endif; ?>
     </nav>
   </header>
