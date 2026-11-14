@@ -1,7 +1,5 @@
 <?php
 $titulo_pagina = "Preguntas Frecuentes – Salta de Mates";
-require_once 'includes/header.php';
-?>
 $extra_styles = '
   <style>
     .acordeon-item {
@@ -39,6 +37,8 @@ $extra_styles = '
     .acordeon-contenido.abierto { display: block; }
   </style>
 ';
+require_once 'includes/header.php';
+?>
 
 
   <div class="page-hero">

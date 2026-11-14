@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog – Salta de Mates</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <header class="site-header">
-    <div>Salta de Mates</div>
-    <nav>
-      <a href="index.html">Lugares</a>
-      <a href="curso.html">Curso</a>
-      <a href="blog.html">Blog</a>
-      <a href="cv.html">CV</a>
-      <a href="faq.html">FAQ</a>
-      <a href="quienes-somos.html">Quiénes Somos</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
+<?php
+$titulo_pagina = "Blog – Salta de Mates";
+require_once 'includes/header.php';
+?>
 
   <div class="page-hero">
     <h1>✍️ Blog de Salta de Mates</h1>
@@ -114,15 +96,4 @@
 
   </main>
 
-  <hr class="footer-line" />
-  <footer class="site-footer">
-    <p>© 2025 Salta de Mates · Enriquez Tiago · 4°3° TM CS</p>
-    <nav>
-      <a href="faq.html">Preguntas Frecuentes</a> |
-      <a href="quienes-somos.html">Quiénes Somos</a> |
-      <a href="index.html">Inicio</a>
-    </nav>
-  </footer>
-
-</body>
-</html>
+<?php require_once 'includes/footer.php'; ?>
