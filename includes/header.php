@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if (!isset($titulo_pagina)) {
     $titulo_pagina = "Salta de Mates | Turismo y Mate en Salta";
 }
@@ -32,5 +35,11 @@ if (!isset($titulo_pagina)) {
       <a href="quienes-somos.php">Quienes Somos</a>
       <a href="contacto.php">Contacto</a>
       <a href="admin/index.php" style="background: #1e7a3e; color: #fff; font-weight: 600; border-color: #1e7a3e;">⚙️ Admin CRUD</a>
+      <?php if (isset($_SESSION['usuario_nombre'])): ?>
+        <a href="logout.php" style="background: #e65100; color: #fff; border-color: #e65100;" title="Cerrar sesión">🚪 Salir (<?php echo htmlspecialchars(explode(' ', $_SESSION['usuario_nombre'])[0], ENT_QUOTES, 'UTF-8'); ?>)</a>
+      <?php else: ?>
+        <a href="login.php" style="border-color: #1e7a3e; font-weight: 600;">🔐 Ingresar</a>
+        <a href="registro.php" style="background: #2e9e52; color: #fff; border-color: #2e9e52;">📝 Registro</a>
+      <?php endif; ?>
     </nav>
   </header>

@@ -3,6 +3,10 @@
  * Header modular para el panel de administración
  * Proyecto: Salta de Mates
  */
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (!isset($titulo_admin)) {
     $titulo_admin = "Panel de Administración - Salta de Mates";
 }
@@ -112,8 +116,20 @@ if (!isset($titulo_admin)) {
                     </li>
                 </ul>
                 <div class="d-flex align-items-center gap-2">
+                    <?php if (isset($_SESSION['usuario_nombre'])): ?>
+                        <span class="text-white small me-2">
+                            👤 <strong><?= htmlspecialchars($_SESSION['usuario_nombre'], ENT_QUOTES, 'UTF-8') ?></strong>
+                        </span>
+                        <a href="../logout.php" class="btn btn-sm btn-outline-warning" title="Cerrar Sesión">
+                            🚪 Salir
+                        </a>
+                    <?php else: ?>
+                        <a href="../login.php" class="btn btn-sm btn-outline-light">
+                            🔐 Iniciar Sesión
+                        </a>
+                    <?php endif; ?>
                     <a href="../index.php" class="btn btn-sm btn-outline-light">
-                        🌐 Ver Sitio Web Público
+                        🌐 Ver Sitio Web
                     </a>
                 </div>
             </div>

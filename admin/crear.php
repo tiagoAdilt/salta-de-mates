@@ -56,11 +56,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 3. Inserción con Consultas Preparadas (Anti SQL Injection)
     if (empty($errores)) {
         try {
-            $sql = "INSERT INTO lugares (nombre, ubicacion, descripcion, historia, imagen) 
-                    VALUES (:nombre, :ubicacion, :descripcion, :historia, :imagen)";
+            $usuario_id = $_SESSION['usuario_id'] ?? 1;
+
+            $sql = "INSERT INTO lugares (usuario_id, nombre, ubicacion, descripcion, historia, imagen) 
+                    VALUES (:usuario_id, :nombre, :ubicacion, :descripcion, :historia, :imagen)";
             
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
+                ':usuario_id'  => $usuario_id,
                 ':nombre'      => $nombre,
                 ':ubicacion'   => $ubicacion,
                 ':descripcion' => $descripcion,
