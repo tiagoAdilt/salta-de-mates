@@ -5,11 +5,8 @@
  * Autor: Enriquez Tiago
  */
 
-session_start();
-if (!isset($_SESSION['usuario_id']) || ($_SESSION['usuario_rol'] ?? '') !== 'admin') {
-    header('Location: ../login.php?error=acceso_denegado');
-    exit;
-}
+$requiredRole = 'admin';
+require_once __DIR__ . '/../auth_guard.php';
 
 require_once '../config/conexion.php';
 

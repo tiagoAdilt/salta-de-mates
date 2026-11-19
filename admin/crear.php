@@ -76,7 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
 
         } catch (\PDOException $e) {
-            $errores[] = "Error al guardar en la base de datos: " . $e->getMessage();
+            error_log('crear.php PDOException: ' . $e->getMessage());
+            $errores[] = "No se pudo guardar el lugar. Intenta nuevamente.";
         }
     }
 }

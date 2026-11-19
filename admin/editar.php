@@ -96,7 +96,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
 
         } catch (\PDOException $e) {
-            $errores[] = "Error al actualizar el registro: " . $e->getMessage();
+            error_log('editar.php PDOException: ' . $e->getMessage());
+            $errores[] = "No se pudo actualizar el lugar. Intenta nuevamente.";
         }
     }
 }

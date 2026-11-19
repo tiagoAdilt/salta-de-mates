@@ -9,13 +9,15 @@ require_once '../config/conexion.php';
 
 $titulo_admin = "Gestión de Lugares - Salta de Mates";
 
-// Captura de término de búsqueda opcional (Integrando lógica de Clase 5 con PDO)
+
 $busqueda = trim($_GET['q'] ?? '');
 
 if (!empty($busqueda)) {
-    // Consulta Preparada con marcadores con nombre (Anti SQL Injection)
-    $stmt = $pdo->prepare("SELECT * FROM lugares WHERE nombre LIKE :q OR ubicacion LIKE :q OR descripcion LIKE :q ORDER BY id DESC");
-    $stmt->execute([':q' => "%" . $busqueda . "%"]);
+    // Consulta Preparada con marcadores con nombre (Anti SQL Injection).
+    // Con ATTR_EMULATE_PREPARES=false cada marcador debe ser unico, por eso :q1, :q2 y :q3.
+    $stmt = $pdo->prepare("SELECT * FROM lugares WHERE nombre LIKE :q1 OR ubicacion LIKE :q2 OR descripcion LIKE :q3 ORDER BY id DESC");
+    $like = "%" . $busqueda . "%";
+    $stmt->execute([':q1' => $like, ':q2' => $like, ':q3' => $like]);
 } else {
     // Consulta directa segura sin parámetros externos
     $stmt = $pdo->query("SELECT * FROM lugares ORDER BY id DESC");
