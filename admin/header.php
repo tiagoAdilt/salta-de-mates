@@ -1,17 +1,8 @@
 <?php
-/**
- * Header modular para el panel de administración
- * Proyecto: Salta de Mates
- */
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-// Control estricto de acceso: Solo Administradores
-if (!isset($_SESSION['usuario_id']) || ($_SESSION['usuario_rol'] ?? '') !== 'admin') {
-    header('Location: ../login.php?error=acceso_denegado');
-    exit;
-}
+require_once __DIR__.'/../config/session.php';
+// Control de acceso (TP8): guardián reutilizable, solo rol 'admin'
+$requiredRole = 'admin';
+require_once __DIR__.'/../auth_guard.php';
 
 if (!isset($titulo_admin)) {
     $titulo_admin = "Panel de Administración - Salta de Mates";
