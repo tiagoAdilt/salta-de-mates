@@ -5,7 +5,7 @@
  * Autor: Enriquez Tiago
  */
 
-session_start();
+require_once 'includes/header.php';
 
 // Si ya tiene sesión iniciada, redirigir
 if (isset($_SESSION['usuario_id'])) {
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 3. Crear el nuevo usuario con contraseña encriptada (Bcrypt)
     if (empty($errores)) {
         try {
-            $password_hash = password_hash($password, PASSWORD_DEFAULT);
+            $password_hash = password_hash($password, PASSWORD_BCRYPT);
             $rol = 'estudiante'; // Rol por defecto
 
             $sql = "INSERT INTO usuarios (nombre, usuario, email, password, rol) 
@@ -76,6 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['usuario_nombre'] = $nombre;
             $_SESSION['usuario_login']  = $usuario;
             $_SESSION['usuario_rol']    = $rol;
+            $_SESSION['rol']            = $rol; // clave exigida por el TP8
+            session_regenerate_id(true);
 
             header('Location: index.php?status=bienvenido');
             exit;
@@ -212,9 +214,6 @@ $titulo_pagina = "Crear Cuenta – Salta de Mates";
 
     <p style="margin-top: 20px; font-size: 0.88rem; color: #555;">
       ¿Ya tienes una cuenta? <a href="login.php" style="color: #1e7a3e; font-weight: 600; text-decoration: none;">Inicia sesión aquí</a>
-    </p>
-    <p style="margin-top: 8px; font-size: 0.85rem;">
-      <a href="index.php" style="color: #888; text-decoration: none;">← Volver al inicio</a>
     </p>
   </div>
 
