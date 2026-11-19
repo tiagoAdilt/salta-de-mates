@@ -43,24 +43,15 @@ require_once 'includes/header.php';
   <main class="container">
 
     <!-- BARRA SUPERIOR: MODO OSCURO Y ACCESO A ADMIN -->
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
-      <div>
-        <?php if ($origen_datos === 'mysql'): ?>
-          <span style="background: #e8f5e9; color: #1e7a3e; padding: 6px 12px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #c8ecd4;">
-            🟢 Datos sincronizados en vivo desde MySQL (<?= count($lugares_db) ?> lugares)
-          </span>
-        <?php endif; ?>
-      </div>
-      <div style="display: flex; gap: 10px;">
-        <?php if (isset($_SESSION['usuario_rol']) && $_SESSION['usuario_rol'] === 'admin'): ?>
-          <a href="admin/index.php" style="background: #1e7a3e; color: #fff; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
-            ⚙️ Administrar Lugares (CRUD)
-          </a>
-        <?php endif; ?>
-        <button id="dark-toggle" onclick="toggleDarkMode()" style="background:#333; color:#fff; border:none; padding:8px 16px; border-radius:20px; cursor:pointer; font-weight:600;">
-          🌙 Modo Oscuro
-        </button>
-      </div>
+    <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px; gap: 10px;">
+      <?php if (isset($_SESSION['usuario_rol']) && $_SESSION['usuario_rol'] === 'admin'): ?>
+        <a href="admin/index.php" style="background: #1e7a3e; color: #fff; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+          ⚙️ Administrar Lugares (CRUD)
+        </a>
+      <?php endif; ?>
+      <button id="dark-toggle" onclick="toggleDarkMode()" style="background:#333; color:#fff; border:none; padding:8px 16px; border-radius:20px; cursor:pointer; font-weight:600;">
+        🌙 Modo Oscuro
+      </button>
     </div>
 
     <h2 class="section-title">📍 Lugares Destacados</h2>
@@ -74,12 +65,24 @@ require_once 'includes/header.php';
           <?php 
             $img_archivo = !empty($item['imagen']) ? $item['imagen'] : 'cerro.jpg';
             $img_src = (strpos($img_archivo, 'http') === 0) ? $img_archivo : 'img/' . $img_archivo;
+            // Generar URL de Google Maps a partir de la ubicación
+            $maps_query = urlencode($item['nombre'] . ', ' . $item['ubicacion'] . ', Salta, Argentina');
+            $maps_url = 'https://www.google.com/maps/search/?api=1&query=' . $maps_query;
+            $card_id = 'card-' . $item['id'];
           ?>
           <article class="place-card">
-            <img src="<?= htmlspecialchars($img_src, ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($item['nombre'], ENT_QUOTES, 'UTF-8') ?>" onerror="this.src='img/cerro.jpg';" />
-            <div class="place-card-body">
-              <h3><?= ($indice + 1) ?>. <?= htmlspecialchars($item['nombre'], ENT_QUOTES, 'UTF-8') ?></h3>
-              <p><strong>Ubicación:</strong> <?= htmlspecialchars($item['ubicacion'], ENT_QUOTES, 'UTF-8') ?></p>
+            <!-- CABECERA CLICKEABLE PARA DESPLEGAR -->
+            <div class="place-card-header" onclick="toggleCard('<?= $card_id ?>')" style="cursor:pointer; position:relative;">
+              <img src="<?= htmlspecialchars($img_src, ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($item['nombre'], ENT_QUOTES, 'UTF-8') ?>" onerror="this.src='img/cerro.jpg';" />
+              <div class="place-card-title-bar" style="display:flex; justify-content:space-between; align-items:center; padding: 12px 16px; background:#fff;">
+                <h3 style="margin:0; font-size:1rem;"><?= ($indice + 1) ?>. <?= htmlspecialchars($item['nombre'], ENT_QUOTES, 'UTF-8') ?></h3>
+                <span class="toggle-icon" id="icon-<?= $card_id ?>" style="font-size:1.2rem; transition: transform 0.3s;">▼</span>
+              </div>
+            </div>
+
+            <!-- CONTENIDO DESPLEGABLE -->
+            <div class="place-card-body" id="<?= $card_id ?>" style="display:none; overflow:hidden; transition: all 0.3s ease;">
+              <p><strong>📍 Ubicación:</strong> <?= htmlspecialchars($item['ubicacion'], ENT_QUOTES, 'UTF-8') ?></p>
               <p><?= htmlspecialchars($item['descripcion'], ENT_QUOTES, 'UTF-8') ?></p>
 
               <div class="tabs-container">
@@ -94,6 +97,12 @@ require_once 'includes/header.php';
                   <p><?= htmlspecialchars($item['ubicacion'], ENT_QUOTES, 'UTF-8') ?></p>
                 </div>
               </div>
+
+              <!-- BOTÓN GOOGLE MAPS -->
+              <a href="<?= htmlspecialchars($maps_url, ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener noreferrer"
+                 style="display:inline-flex; align-items:center; gap:8px; margin-top:14px; background:#1e7a3e; color:#fff; padding:9px 18px; border-radius:20px; text-decoration:none; font-weight:600; font-size:0.88rem;">
+                🗺️ Ver en Google Maps
+              </a>
             </div>
           </article>
         <?php endforeach; ?>
@@ -196,6 +205,19 @@ require_once 'includes/header.php';
   </main>
 
   <script>
+    // Toggle despliegue de tarjeta
+    function toggleCard(id) {
+      const body = document.getElementById(id);
+      const icon = document.getElementById('icon-' + id);
+      if (body.style.display === 'none' || body.style.display === '') {
+        body.style.display = 'block';
+        icon.style.transform = 'rotate(180deg)';
+      } else {
+        body.style.display = 'none';
+        icon.style.transform = 'rotate(0deg)';
+      }
+    }
+
     // Cambio de pestañas en tarjetas
     function cambiarTab(btn, id) {
       const cardBody = btn.closest('.place-card-body');

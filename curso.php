@@ -172,10 +172,10 @@ Verano (Dic-Feb) : Preferable lugares con sombra y agua
       <p>Organizá una ronda de mates y documentá los códigos que observaste. Subí tu reflexión al campus.</p>
     </div>
 
-    <!-- EVALUACIÓN Y QUIZ EN VIVO (PERSISTENCIA MYSQL) -->
+    <!-- EVALUACIÓN Y QUIZ EN VIVO -->
     <div class="card-blanco" id="evaluacion-section">
-      <h2>📋 Cuestionario Evaluativo (Persistencia en MySQL)</h2>
-      <p>Demostrá tus conocimientos sobre la cultura y el ritual del mate salteño. Las respuestas se registran y califican directamente en la base de datos.</p>
+      <h2>📋 Cuestionario Evaluativo del Curso</h2>
+      <p>Demostrá tus conocimientos sobre la cultura y el ritual del mate salteño. Al finalizar obtendrás tu calificación oficial.</p>
 
       <?php if (!empty($mensaje_quiz)): ?>
         <div style="padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; font-size: 0.95rem; line-height: 1.5; background: <?php echo ($tipo_alerta_quiz === 'success') ? '#e8f5e9' : (($tipo_alerta_quiz === 'danger') ? '#ffebee' : '#e3f2fd'); ?>; color: <?php echo ($tipo_alerta_quiz === 'success') ? '#2e7d32' : (($tipo_alerta_quiz === 'danger') ? '#c62828' : '#0d47a1'); ?>; border: 1px solid <?php echo ($tipo_alerta_quiz === 'success') ? '#c8ecd4' : (($tipo_alerta_quiz === 'danger') ? '#ffcdd2' : '#bbdefb'); ?>;">
@@ -190,7 +190,7 @@ Verano (Dic-Feb) : Preferable lugares con sombra y agua
         </div>
       <?php else: ?>
         <div style="background: #fff3e0; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; font-size: 0.88rem; color: #e65100; border: 1px solid #ffe0b2;">
-          💡 <strong>Tip:</strong> Para que tu nota quede vinculada a tu nombre en la base de datos, <a href="login.php" style="color: #e65100; font-weight: bold;">Inicia sesión</a> o <a href="registro.php" style="color: #e65100; font-weight: bold;">Crea tu cuenta</a> antes de enviar.
+          💡 <strong>Tip:</strong> Para guardar tu progreso y consultar tus calificaciones, <a href="login.php" style="color: #e65100; font-weight: bold;">Inicia sesión</a> o <a href="registro.php" style="color: #e65100; font-weight: bold;">Crea tu cuenta</a> antes de enviar.
         </div>
       <?php endif; ?>
 
@@ -243,10 +243,10 @@ Verano (Dic-Feb) : Preferable lugares con sombra y agua
         </button>
       </form>
 
-      <!-- HISTORIAL DE INTENTOS GUARDADOS EN MYSQL -->
+      <!-- HISTORIAL DE INTENTOS GUARDADOS -->
       <?php if (!empty($mis_intentos)): ?>
         <div style="margin-top: 30px; border-top: 2px dashed #c8ecd4; padding-top: 20px;">
-          <h3>📜 Tus calificaciones guardadas en la Base de Datos:</h3>
+          <h3>📜 Historial de tus calificaciones:</h3>
           <table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem;">
             <thead>
               <tr style="background: #edf7f0; color: #1e7a3e; text-align: left;">
