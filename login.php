@@ -1,13 +1,15 @@
 <?php
-require_once 'config/session.php';
+if (!($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['logout']))) {
+    require_once 'config/session.php';
+}
 
 $titulo_pagina  = "Salta de Mates – Iniciar Sesión";
 $error          = "";
 $mensaje_info   = "";
 $usuario_input  = "";
 
-// Si ya tiene sesión iniciada, redirigir según su rol
-if (isset($_SESSION['usuario_id'])) {
+// Si ya tiene sesión iniciada, redirigir según su rol (salvo cuando viene por rol_insuficiente para mostrar el aviso)
+if (isset($_SESSION['usuario_id']) && ($_GET['error'] ?? '') !== 'rol_insuficiente') {
     if (($_SESSION['usuario_rol'] ?? '') === 'admin') {
         header('Location: admin/index.php');
     } else {
